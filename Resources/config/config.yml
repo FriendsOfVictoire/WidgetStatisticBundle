@@ -1,0 +1,11 @@
+victoire_core:
+    widgets:
+        Statistic:
+            class: "Victoire\\Widget\\StatisticBundle\\Entity\\WidgetStatistic"
+            name: Statistic
+
+jms_translation:
+    configs:
+        victoire_widget_statistic_bundle:
+            dirs: ["@VictoireWidgetStatisticBundle"]
+            output_dir: "@VictoireWidgetStatisticBundle/Resources/translations"

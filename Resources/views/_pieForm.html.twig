@@ -1,0 +1,61 @@
+<div class="a-form-row">
+    <table>
+        <tr>
+            <th><label style="text-align: center">Label</label></th>
+            <th><label style="text-align: center">Valeur</label></th>
+            <th><label style="text-align: center">&nbsp;</label></th>
+        </tr>
+        {% set i = 1 %}
+        {% if values != null %}
+            {% if index == 0 %}
+                {% set data = data_unserialize(values.data0) %}
+            {% else %}
+                 {% set data = data_unserialize(values.data1) %}
+            {% endif %}
+        {% endif %}
+        {% if data is defined %}
+            {% for key,value in data %}
+                {% if (value['key'] is not empty) and (value['value'] is not empty) %}
+                    <tr>
+                        <td><input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][key]" value="{{value['key']}}" placeholder="Entrez un label" /></td>
+                        <td><input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][value]" value="{{value['value']}}" placeholder="Entrez une valeur" /></td>
+                        <td><span title="scpi" class="a-tag">
+                                <a title="Supprimer" class="a-link icon icon-right a-close-small alt">
+                                    <span class="icon" style="position: relative" onclick="$(this).parents('tr').remove();"></span>
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
+                    {% set i = i + 1 %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <tr>
+            <td><input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][key]" placeholder="Entrez un label" /></td>
+            <td><input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][value]" placeholder="Entrez une valeur" /></td>
+            <td><span title="scpi" class="a-tag">
+                    <a title="Supprimer" class="a-link icon icon-right a-close-small alt">
+                        <span class="icon" style="position: relative" onclick="$(this).parents('tr').remove();"></span>
+                    </a>
+                </span>
+            </td>
+        </tr>
+        <tr id="{{ values == NULL ? 0 : values.id }}newRows-{{index}}">
+            <td colspan="2">
+                <a onclick="{{ statistic_form_preg_replace('victoire_widget_form_statistic[data'~index~']')}}addLine({{i + 1}})">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    function {{ statistic_form_preg_replace('victoire_widget_form_statistic[data'~index~']')}}addLine(id){
+        $("#{{ values == NULL ? 0 : values.id }}newRows-{{ index }}").before(
+            '<tr><td><input type="text" name="victoire_widget_form_statistic[data{{index}}]['+id+'][key]" value="" placeholder="Entrez un label" /></td><td><input type="text" name="victoire_widget_form_statistic[data{{index}}]['+id+'][value]" placeholder="Entrez une valeur" /></td><td><span title="scpi" class="a-tag"><a title="Supprimer" class="a-link icon icon-right a-close-small alt"><span class="icon" style="position: relative" onclick="$(this).parents(\'tr\').remove();"></span></a></span></td></tr>'
+        );
+        $("#{{ values == NULL ? 0 : values.id }}newRows-{{ index }}").html(
+            '<td colspan="2"><a onclick="{{ statistic_form_preg_replace('victoire_widget_form_statistic[data'~index~']')}}addLine('+parseInt(id+1)+')"><i class="fa fa-plus"></i></a></td>'
+        );
+    }
+</script>

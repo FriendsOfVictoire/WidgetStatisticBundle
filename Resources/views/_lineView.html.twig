@@ -1,0 +1,63 @@
+<?php
+{% if index == 0 %}
+    {% set headers = (widget.data0 | get_headers(0)) %}
+    {% set datas = ( widget.data0 | get_datas(0)) %}
+    {% set type = widget.type0 %}
+    {% set title = widget.title0 %}
+    {% set pieSize = widget.pieSize0 %}
+    {% set showLabel = widget.showLabel0 ? 'true' : 'false' %}
+    {% set fontSize = widget.fontSize0 %}
+    {% set width = widget.width0 %}
+    {% set height = widget.height0 %}
+{% else %}
+    {% set headers = (widget.data1 | get_headers(1)) %}
+    {% set datas = (( widget.data1 | unset_header ) | get_datas(1)) %}
+    {% set type = widget.type1 %}
+    {% set title = widget.title1 %}
+    {% set pieSize = widget.pieSize1 %}
+    {% set showLabel = widget.showLabel1 ? 'true' : 'false' %}
+    {% set fontSize = widget.fontSize1 %}
+    {% set width = widget.width1 %}
+    {% set height = widget.height1 %}
+{% endif %}
+?>
+<script type="text/javascript">
+$(function () {
+    $("#{{ index ~ '_' ~ type ~ '-' ~ title | camelize}}").highcharts({
+        title: {
+            text: '',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '',
+            x: -20
+        },
+        xAxis: {
+            categories: ['{{ headers | raw }}']
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{{ datas | raw }}]
+    });
+});
+</script>
+
+<div id="{{ index ~ '_' ~ type ~ '-' ~ title | camelize}}"
+      style="width: {{ width }}px; height: {{ height }}px; margin: 0 auto">
+</div>

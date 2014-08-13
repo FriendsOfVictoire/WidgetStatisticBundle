@@ -1,0 +1,179 @@
+{% set data = null %}
+{% set id = (values == NULL ? 0 : values.id) %}
+{% set name = statistic_form_preg_replace('victoire_widget_form_statistic[data' ~ index ~ ']') %}
+{% if values != null %}
+    {% if index == 0 %}
+        {% set data = data_unserialize(values.data0) %}
+    {% else %}
+         {% set data = data_unserialize(values.data1) %}
+    {% endif %}
+{% endif %}
+
+<div class="a-form-row">
+    <table id="{{ id }}-table-{{ index }}{{ 'now'|date('U') }}">
+        <thead>
+
+            <tr id="{{ id }}-deleteRow-{{ index }}">
+                <td>&nbsp;</td>
+                {% set key = 1 %}
+                {% if data != null and data['header'] != '' %}
+                    {% for key,value in data['header'] %}
+                        <td>
+                            <span title="supprimer" class="a-tag">
+                                <a title="supprimer" class="a-link icon icon-right a-close-small alt deleteColumn">
+                                    <span class="icon"></span>
+                                </a>
+                            </span>
+                        </td>
+                    {% endfor %}
+                {% else %}
+                <td>
+                    <span title="supprimer" class="a-tag">
+                        <a title="supprimer" class="a-link icon icon-right a-close-small alt deleteColumn">
+                            <span class="icon"></span>
+                        </a>
+                    </span>
+                </td>
+                {% endif %}
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                {% if data != null and data['header'] != '' %}
+                    {% for key,value in data['header'] %}
+                        <th>
+                            <input type="text" name="victoire_widget_form_statistic[data{{index}}][header][{{key}}]" value="{{value}}" placeholder="Entrez un label" />
+                        </th>
+                    {% endfor %}
+                    {% set countHeader = (( data['header'] is iterable)? data['header']|length  : '0') %}
+                {% else %}
+                    {% set countHeader = 1 %}
+                    <th>
+                        <input type="text" name="victoire_widget_form_statistic[data{{index}}][header][0]" placeholder="Entrez un label" />
+                    </th>
+                {% endif %}
+
+                <th id="{{ id }}-addColumn-{{index}}" style="padding-left: 5px">
+                    <a class="addColumn">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="{{ id }}-tbody-{{index}}">
+            {% set i = 1 %}
+            {% if data != null %}
+                {% for n,row in (data | unset_header) %}
+                    {% if (row['key'] is not empty) and (row['values'] is not empty) %}
+                        <tr>
+                            <td>
+                                <input type="hidden" class="id" value="{{i}}"/>
+                                <input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][key]" value="{{row['key']}}" placeholder="Entrez un label"/>
+                            </td>
+                            {% for hi, value in row['values']%}
+                                <td><input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][values][{{hi}}]" placeholder="Entrez une valeur" value="{{value}}"/></td>
+                            {% endfor %}
+                            <td><span title="supprimer" class="a-tag">
+                                    <a title="supprimer" class="a-link icon icon-right a-close-small alt">
+                                        <span class="icon" style="position: relative" onclick="$vic(this).parents('tr').remove();"></span>
+                                    </a>
+                                </span>
+                            </td>
+                        </tr>
+                        {% set i = i + 1 %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            <tr>
+                <td>
+                    <input type="hidden" class="id" value="{{i}}"/>
+                    <input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][key]" placeholder="Entrez un label" />
+                </td>
+                {% for hi in 0 .. (countHeader-1) %}
+                    <td>
+                        <input type="text" name="victoire_widget_form_statistic[data{{index}}][{{i}}][values][{{hi}}]" placeholder="Entrez une valeur" />
+                    </td>
+                {% endfor %}
+                <td><span title="supprimer" class="a-tag">
+                        <a title="supprimer" class="a-link icon icon-right a-close-small alt">
+                            <span class="icon" style="position: relative" onclick="$vic(this).parents('tr').remove();"></span>
+                        </a>
+                    </span>
+                </td>
+            </tr>
+            <tr id="{{ id }}newRows_{{index}}">
+                <td>
+                    <a onclick="{{ name }}addRow({{ i + 1 }})">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td>
+            {% for hi in 0 .. countHeader %}
+                <td>&nbsp;</td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+<input type="hidden" value="{{countHeader}}" id="count_column-{{index}}"/>
+<input type="hidden" value="0" id="count_deleted_column-{{index}}"/>
+<script type="text/javascript">
+    function {{ name }}addRow(id){
+        var tds = '<td><input type="text" name="victoire_widget_form_statistic[data{{index}}]['+id+'][key]" value="" placeholder="Entrez un label"/></td>';
+        for (i = 0; i < $vic('#count_column-{{index}}').val(); i++) {
+            tds = tds + '<td><input type="text" name="victoire_widget_form_statistic[data{{index}}]['+id+'][values]['+i+']" value="" placeholder="Entrez une valeur"/></td>';
+        }
+        $vic("#{{ id }}newRows_{{index}}").before(
+        '<tr>'+tds+'<td><span class="a-tag"><a title="supprimer" class="a-link icon icon-right a-close-small alt"><span class="icon" style="position: relative" onclick="$vic(this).parents(\'tr\').remove();"></span></a></span></td></tr>'
+        );
+        var html = '<td><a onclick="{{ name }}addRow('+parseInt(id+1)+')"><i class="fa fa-plus"></i></a></td>';
+        for (i = 0; i < parseInt($vic('#count_column-{{index}}').val())+1; i++) {
+            html = html + '<td>&nbsp;</td>';
+        }
+        $vic("#{{ id }}newRows_{{index}}").html(html);
+    }
+
+
+    $vic("#{{ id }}-table-{{index}}{{'now'|date('U')}} a.addColumn").on("click", function(e){
+        //increment count column
+        $vic('#count_column-{{index}}').val(parseInt($vic('#count_column-{{index}}').val())+1);
+
+        var index = $vic(this).closest("th").prevAll("th").length - 1;
+        $vic("#{{ id }}-addColumn-{{index}}").before(
+            '<th><input type="text" name="victoire_widget_form_statistic[data{{index}}][header]['+ index +']" value="" placeholder="Entrez un label" /></th>'
+        );
+        $vic("#{{ id }}-deleteRow-{{index}}").find("td:eq("+parseInt(index-1)+")").after(
+            '<td><span title="supprimer" class="a-tag"><a title="supprimer" class="a-link icon icon-right a-close-small alt deleteColumn"><span class="icon"></span></a></span></td>'
+        );
+        //Get all table rows
+        var rows = $vic("#{{ id }}-tbody-{{index}} tr");
+        //Add a last cell in order to have same number as th (+ icon)
+        $vic(rows[$vic(rows).length-1]).append("<td>&nbsp;</td>");
+        //delete 
+        // delete rows[$vic(rows).length-1];
+        $vic(rows).each(function(){
+            $vic(this).find("td:last").remove();
+            var current_row_id = $vic(this).find(".id").val();
+            if (this != undefined) {
+                $vic(this).append(
+                '<td><input type="text" name="victoire_widget_form_statistic[data{{index}}]['+current_row_id+'][values]['+index+']" value="" placeholder="Entrez une valeur" /></td><td><span class="a-tag"><a title="supprimer" class="a-link icon icon-right a-close-small alt"><span class="icon" style="position: relative" onclick="$vic(this).parents(\'tr\').remove();"></span></a></span></td>'
+                );
+            }
+        });
+
+        $vic(rows[$vic(rows).length-1]).find("td:last").remove();
+        $vic(rows[$vic(rows).length-1]).find("td:last").remove();
+        $vic(rows[$vic(rows).length-1]).append("<td>&nbsp;</td>");
+
+        // tr = $vic('tr:last-child', $vic('#0-table-01406887710'));
+        // $(tr).remove();
+        // console.log(tr);
+        // console.log($vic('td:last-child', $vic(tr)));
+
+        // $vic('#count_column-{{index}}').val();
+        // $vic(rows).length;
+
+    });
+</script>

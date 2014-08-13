@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+    <file date="2013-11-27T18:15:06Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+        <header>
+            <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+            <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+        </header>
+        <body>
+            <trans-unit resname="widget.statistic.new.action.label">
+                <source>widget.statistic.new.action.label</source>
+                <target>Statistic</target>
+            </trans-unit>
+            <trans-unit resname="modal.form.widget.type.statistic.label">
+                <source>modal.form.widget.type.statistic.label</source>
+                <target>Statistic</target>
+            </trans-unit>
+            <trans-unit id="71eeaa4fc527d4f896b8fe0ae57d8726b463f46b" resname="widget.statistic.form.coordonatesYAxis0.label">
+                <source>widget.statistic.form.coordonatesYAxis0.label</source>
+                <target state="new">Unité coordonnées</target>
+                <jms:reference-file line="77">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="efe2d670fd3481975dc653a2c3372132a1ca4b0d" resname="widget.statistic.form.coordonatesYAxis1.label">
+                <source>widget.statistic.form.coordonatesYAxis1.label</source>
+                <target state="new">Unité coordonnées</target>
+                <jms:reference-file line="144">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="0edd39cae588acfbd90a5fbefe1a5be0c3469c8e" resname="widget.statistic.form.data0.label">
+                <source>widget.statistic.form.data0.label</source>
+                <target state="new">widget.statistic.form.data0.label</target>
+                <jms:reference-file line="83">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="b90d7a53b50393e8bb4e920af3b4b0f4c0a4821f" resname="widget.statistic.form.data1.label">
+                <source>widget.statistic.form.data1.label</source>
+                <target state="new">widget.statistic.form.data1.label</target>
+                <jms:reference-file line="150">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="2075bd8a574292795ebe4625509e22f2a223141e" resname="widget.statistic.form.fontSize0.label">
+                <source>widget.statistic.form.fontSize0.label</source>
+                <target state="new">Taille police</target>
+                <jms:reference-file line="45">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="b211692ee94d42807d2b419c1592ccb22b31dba5" resname="widget.statistic.form.fontSize1.label">
+                <source>widget.statistic.form.fontSize1.label</source>
+                <target state="new">Taille police</target>
+                <jms:reference-file line="112">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="2c82d8b29bb8eb042757141e99482991b74df6bb" resname="widget.statistic.form.height0.label">
+                <source>widget.statistic.form.height0.label</source>
+                <target state="new">Hauteur</target>
+                <jms:reference-file line="71">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="e1b8327d18b857d86dee93ea4bbb83474ffb049e" resname="widget.statistic.form.height1.label">
+                <source>widget.statistic.form.height1.label</source>
+                <target state="new">Hauteur</target>
+                <jms:reference-file line="138">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="0007a2dc0be25f17b2e7b63b759df209e906b2a1" resname="widget.statistic.form.isDoubleChart.label">
+                <source>widget.statistic.form.isDoubleChart.label</source>
+                <target state="new">2 graphiques ?</target>
+                <jms:reference-file line="89">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="2e2ea0eba071608ecf2b14526023a0b83500ac8d" resname="widget.statistic.form.pieSize0.label">
+                <source>widget.statistic.form.pieSize0.label</source>
+                <target state="new">Taille du camembert</target>
+                <jms:reference-file line="52">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="64601ef57ce620403a10bd8ace22e374ea8152e0" resname="widget.statistic.form.pieSize1.label">
+                <source>widget.statistic.form.pieSize1.label</source>
+                <target state="new">Taille du camembert</target>
+                <jms:reference-file line="119">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="278c194ebf5a7baba90c4aa6fbe5fd93780483d5" resname="widget.statistic.form.showLabel0.label">
+                <source>widget.statistic.form.showLabel0.label</source>
+                <target state="new">Afficher les labels</target>
+                <jms:reference-file line="39">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="3d4fa292870cd11402a688275ff958899740687d" resname="widget.statistic.form.showLabel1.label">
+                <source>widget.statistic.form.showLabel1.label</source>
+                <target state="new">Afficher les labels</target>
+                <jms:reference-file line="106">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="48f32042bbe1fb97de5dc53647da643c1d47ccc1" resname="widget.statistic.form.title0.label">
+                <source>widget.statistic.form.title0.label</source>
+                <target state="new">Titre</target>
+                <jms:reference-file line="58">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="9dfc83c8e574c005c8bd9f71ee5f1b58c85fe2d4" resname="widget.statistic.form.title1.label">
+                <source>widget.statistic.form.title1.label</source>
+                <target state="new">Titre</target>
+                <jms:reference-file line="125">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="5d197e8482d05bd9c8717c7c9963724f36161af3" resname="widget.statistic.form.type0.label">
+                <source>widget.statistic.form.type0.label</source>
+                <target state="new">Type</target>
+                <jms:reference-file line="33">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="b1cbd6a2edbc8bfc23f1ff97b1c82dbde8d5a0f4" resname="widget.statistic.form.type1.label">
+                <source>widget.statistic.form.type1.label</source>
+                <target state="new">Type</target>
+                <jms:reference-file line="101">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="7a8039107c010327a8a01e315377280d05e06ae4" resname="widget.statistic.form.width0.label">
+                <source>widget.statistic.form.width0.label</source>
+                <target state="new">Largeur</target>
+                <jms:reference-file line="64">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b641" resname="widget.statistic.form.width1.label">
+                <source>widget.statistic.form.width1.label</source>
+                <target state="new">Largeur</target>
+                <jms:reference-file line="131">StatisticBundle/Form/WidgetStatisticType.php</jms:reference-file>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b642">
+                <source>widget.statistic.form.fontSize0.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b643">
+                <source>widget.statistic.form.fontSize1.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b644">
+                <source>widget.statistic.form.pieSize0.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b645">
+                <source>widget.statistic.form.pieSize1.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b646">
+                <source>widget.statistic.form.width0.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b647">
+                <source>widget.statistic.form.width1.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b648">
+                <source>widget.statistic.form.height0.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b649">
+                <source>widget.statistic.form.height1.helpBlock</source>
+                <target state="new">en pixels</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b650">
+                <source>widget.statistic.form.coordonatesYAxis0.helpBlock</source>
+                <target state="new">cm, m, k€ etc...</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b651">
+                <source>widget.statistic.form.coordonatesYAxis1.helpBlock</source>
+                <target state="new">cm, m, k€ etc...</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b652">
+                <source>widget.statistic.form.isDoubleChart.helpBlock</source>
+                <target state="new">en cochant cette case, 2 formulaires distincts permettront d'entrer des données pour 2 graphiques distincts positionnés cote à cote.S'ils ne s'affichent pas au même niveau,c'est que la taille cumulée est trop importante (756px max)</target>
+            </trans-unit>
+            <trans-unit id="1172ab91edeed4abf98a766b3989fe055c03b653">
+                <source>(optional)</source>
+                <target state="new">(optionnel)</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,105 @@
+{% extends 'VictoireCoreBundle:Widget:edit.html.twig' %}
+
+{% set widgetId = widget.id|default('null') %}
+{% block body %}
+    {% block form %}
+        {{ form_start(form) }}
+        <div style="padding: 5px; border: 1px solid #cecece; border-radius:5px; overflow: hidden;">
+            {{ form_row(form.title0) }}
+            {{ form_row(form.width0) }}
+            {{ form_row(form.height0) }}
+            {{ form_row(form.pieSize0) }}
+            {{ form_row(form.fontSize0) }}
+            {{ form_row(form.type0) }}
+            {{ form_row(form.coordonatesYAxis0) }}
+            <div id="chartDataForm">
+                {{ form_row(form.data0) }}
+            </div>
+            {{ form_row(form.showLabel0) }}
+        </div>
+        {{ form_row(form.isDoubleChart) }}
+        <div id="{{ form.data1.vars.id }}_div_container" style="
+        {% if form.isDoubleChart.vars.checked %}
+            {% set display = 'display:block;' %}
+        {% else %}
+            {% set display = 'display:none;' %}
+        {% endif %}
+        {{ display }} padding: 5px; border: 1px solid #cecece; border-radius:5px; overflow: hidden;">
+            {{ form_row(form.title1) }}
+            {{ form_row(form.width1) }}
+            {{ form_row(form.height1) }}
+            {{ form_row(form.pieSize1) }}
+            {{ form_row(form.fontSize1) }}
+            {{ form_row(form.type1) }}
+            {{ form_row(form.coordonatesYAxis1) }}
+            <div id="secondChartDataForm">
+                {{ form_row(form.data1) }}
+            </div>
+            {{ form_row(form.showLabel1) }}
+        </div>
+        {{ form_end(form) }}
+    {% endblock form %}
+
+    <script type="text/javascript">
+        loadGraphForm('{{ form.type0.vars.value }}', {{ widgetId }});
+        if( '{{form.isDoubleChart.vars.checked}}' == 1) {
+            loadSecondGraphForm('{{ form.type1.vars.value }}', {{ widgetId }});
+        }
+
+        $('#{{ form.vars.name }}_type0').change(function() {
+            loadGraphForm($(this).val(), {{widgetId}});
+        });
+
+        $('#{{ form.vars.name }}_type1').change(function() {
+            loadSecondGraphForm($(this).val(), {{widgetId}});
+        });
+
+        function loadGraphForm(type, widgetId) {
+            $.ajax({
+                url: '{{ path("statistic_render_type_form") }}',
+                type: "POST",
+                data: {
+                    widgetId: widgetId,
+                    type: type,
+                    index: 0
+                },
+                success: function(response) {
+                    $('#chartDataForm').html(response);
+                },
+                error: function(jsonResponse) {
+                    alert("Il semble s'être produit une erreur");
+                }
+            });
+        }
+
+        function loadSecondGraphForm(type, widgetId) {
+            $.ajax({
+                url: '{{ path("statistic_render_type_form") }}',
+                type: "POST",
+                data: {
+                    widgetId: widgetId,
+                    type: type,
+                    index: 1
+                },
+                success: function(response) {
+                    $('#secondChartDataForm').html(response);
+                },
+                error: function(jsonResponse) {
+                    alert("Il semble s'être produit une erreur");
+                }
+            });
+        }
+
+        $('#{{ form.vars.name }}_isDoubleChart').click(function() {
+            if($(this).is(':checked')) {
+                $('#{{ form.data1.vars.id }}_div_container').slideDown();
+                loadSecondGraphForm('{{ form.type1.vars.value }}', {{widgetId}});
+            } else {
+                $('#{{ form.data1.vars.id }}_div_container').slideUp();
+            }
+        });
+
+
+    </script>
+
+{% endblock body %}

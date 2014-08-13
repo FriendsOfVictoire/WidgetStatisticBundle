@@ -1,0 +1,38 @@
+{% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
+
+{% block content %}
+
+<div style="overflow: hidden;">
+    <div style="float: left;">
+        <div style="width: {{ widget.width0 }}px;height: {{ widget.height0 + 30}}px;">
+            {% if widget.title0 is defined %}
+                <h4 style="text-align: center;">{{ widget.title0 }}</h4>
+                {% include 'VictoireWidgetStatisticBundle::_' ~ widget.type0 ~ 'View.html.twig' with {'widget': widget, 'index': 0} %}
+            {% endif %}
+        </div>
+    </div>
+    {% if widget.isDoubleChart != '' %}
+    <div style="float: left;">
+        <div style="width: {{ widget.width1 }}px;height: {{ widget.height1 + 30}}px;">
+            {% if widget.title1 is defined %}
+                <h4 style="text-align: center;">{{ widget.title1 }}</h4>
+                {% include 'VictoireWidgetStatisticBundle::_' ~ widget.type1 ~ 'View.html.twig' with {'widget': widget, 'index': 1} %}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% javascripts 
+    '@VictoireWidgetStatisticBundle/Resources/public/js/highcharts.js'
+%}
+
+<script type="text/javascript">
+if (!window.Highcharts) {
+    document.write("<script src=\"{{ asset_url }}\">");
+    
+}
+</script>
+{% endjavascripts %}
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+services:
+    victoire_core.widget_statistic_content_resolver:
+        class: Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver
+        tags:
+            - { name: victoire_widget.widget_content_resolver, alias: Statistic }
+    #alias to the entity
+    victoire.widget.statistic:
+        class: Victoire\Widget\StatisticBundle\Entity\WidgetStatistic
+    #alias to the form
+    victoire.widget.form.statistic:
+        class: Victoire\Widget\StatisticBundle\Form\WidgetStatisticType
+        tags:
+            - { name: form.type , alias: victoire_widget_form_statistic }
+
+    victoire.twig.statistic_extension:
+        class: Victoire\Widget\StatisticBundle\Twig\StatisticExtension
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,59 @@
+{% if index == 0 %}
+    {% set data = pie_highchartilize_data(widget.data0, 0) %}
+    {% set type = widget.type0 %}
+    {% set title = widget.title0 %}
+    {% set pieSize = widget.pieSize0 %}
+    {% set showLabel = widget.showLabel0 ? 'true' : 'false' %}
+    {% set fontSize = widget.fontSize0 %}
+    {% set width = widget.width0 %}
+    {% set height = widget.height0 %}
+{% else %}
+    {% set data = pie_highchartilize_data(widget.data1, 1) %}
+    {% set type = widget.type1 %}
+    {% set title = widget.title1 %}
+    {% set pieSize = widget.pieSize1 %}
+    {% set showLabel = widget.showLabel1 ? 'true' : 'false' %}
+    {% set fontSize = widget.fontSize1 %}
+    {% set width = widget.width1 %}
+    {% set height = widget.height1 %}
+{% endif %}
+
+<script type="text/javascript">
+    $(function () {
+        $("#{{ index ~ '_' ~ type ~ '-' ~ title | camelize}}").highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 1,//null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: {{ showLabel }},
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: 'black'
+                        }
+                    },
+                    size: {{ pieSize }}
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '{{ title }}',
+                data: [ {{ data | raw }} ]
+            }]
+        });
+    });
+</script>
+<div id="{{ index ~ '_' ~ type ~ '-' ~ title | camelize}}"
+      style="width: {{ width }}px; height: {{ height }}px; margin: 0 auto">
+</div>
