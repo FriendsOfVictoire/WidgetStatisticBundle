@@ -1,5 +1,5 @@
 {
-    "name": "appventus/statistic-widget",
+    "name": "friendsofvictoire/statistic-widget",
     "type": "symfony-bundle",
     "description": "Victoire Cms Statistic widget",
     "keywords": ["cms", "victoire", "Statistic", "widget"],
