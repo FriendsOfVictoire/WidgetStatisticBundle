@@ -1,3 +1,6 @@
+*DEPRECATED*, you should use the victoire/table-widget instead
+===========
+
 Victoire CMS Statistic Bundle
 ============
 
