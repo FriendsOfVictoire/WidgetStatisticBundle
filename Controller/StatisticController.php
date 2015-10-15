@@ -5,23 +5,22 @@ namespace Victoire\Widget\StatisticBundle\Controller;
 use AppVentus\Awesome\ShortcutsBundle\Controller\AwesomeController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Victoire\Bundle\CoreBundle\Repository\WidgetRepository;
-
 use Victoire\Widget\StatisticBundle\Entity\WidgetStatistic;
+
 /**
- * StatisticController
+ * StatisticController.
  *
  * @Route("/statistic")
  */
 class StatisticController extends AwesomeController
 {
-
     /**
-     * renderTypeFormAction
+     * renderTypeFormAction.
      *
      * @param Request $request
      *
      * @Route("/type/form", name="statistic_render_type_form")
+     *
      * @return partialRender
      */
     public function renderTypeFormAction(Request $request)
@@ -32,23 +31,23 @@ class StatisticController extends AwesomeController
             $graphIndex = $request->request->get('index');
             $widget = new WidgetStatistic();
 
-            if($widgetId != null) {
+            if ($widgetId != null) {
                 $widgetRepository = $this->getDoctrine()
                     ->getRepository('VictoireWidgetBundle:Widget');
                 $widget = $widgetRepository->findOneById($widgetId);
 
                 $widgetType = $widget->getTypeByIndex($graphIndex);
 
-                if($graphType != $widgetType) {
-                    $widget->setDataByIndex("", $graphIndex);
+                if ($graphType != $widgetType) {
+                    $widget->setDataByIndex('', $graphIndex);
                 }
             }
 
             return $this->render(
-                'VictoireWidgetStatisticBundle::_'.$graphType.'Form.html.twig',array(
-                    'values'=> $widget,
-                    'index' => $graphIndex
-                )
+                'VictoireWidgetStatisticBundle::_'.$graphType.'Form.html.twig', [
+                    'values' => $widget,
+                    'index'  => $graphIndex,
+                ]
             );
         }
     }
