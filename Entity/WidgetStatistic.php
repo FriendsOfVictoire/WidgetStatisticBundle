@@ -1,18 +1,19 @@
 <?php
+
 namespace Victoire\Widget\StatisticBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
+
 /**
- * WidgetStatistic
+ * WidgetStatistic.
  *
  * @ORM\Table("vic_widget_statistic")
  * @ORM\Entity
  */
 class WidgetStatistic extends Widget
 {
-
     /**
      * @var string
      *
@@ -23,14 +24,14 @@ class WidgetStatistic extends Widget
     protected $type0;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="show_label_0", type="boolean")
      */
     protected $showLabel0;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="font_size_0", type="integer")
      * @Assert\NotBlank()
@@ -38,7 +39,7 @@ class WidgetStatistic extends Widget
     protected $fontSize0;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="pie_size_0", type="integer")
      * @Assert\NotBlank()
@@ -54,7 +55,7 @@ class WidgetStatistic extends Widget
     protected $title0;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="width_0", type="integer")
      * @Assert\NotBlank()
@@ -66,7 +67,7 @@ class WidgetStatistic extends Widget
     protected $width0;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="height_0", type="integer")
      * @Assert\NotBlank()
@@ -91,7 +92,7 @@ class WidgetStatistic extends Widget
     protected $data0;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="is_double_chart", type="boolean")
      */
@@ -106,7 +107,7 @@ class WidgetStatistic extends Widget
     protected $type1;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="show_label_1", type="boolean", nullable=true)
      */
@@ -120,21 +121,21 @@ class WidgetStatistic extends Widget
     protected $title1;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="font_size_1", type="integer", nullable=true)
      */
     protected $fontSize1;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="pie_size_1", type="integer", nullable=true)
      */
     protected $pieSize1;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="width_1", type="integer", nullable=true)
      * @Assert\Range(
@@ -145,7 +146,7 @@ class WidgetStatistic extends Widget
     protected $width1;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="height_1", type="integer", nullable=true)
      * @Assert\Range(
@@ -177,9 +178,9 @@ class WidgetStatistic extends Widget
     /**
      * To String function
      * Used in render choices type (Especially in VictoireWidgetRenderBundle)
-     * //TODO Check the generated value and make it more consistent
+     * //TODO Check the generated value and make it more consistent.
      *
-     * @return String
+     * @return string
      */
     public function __toString()
     {
@@ -187,7 +188,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set type0
+     * Set type0.
      *
      * @param string $type0
      */
@@ -199,7 +200,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get type0
+     * Get type0.
      *
      * @return string
      */
@@ -209,7 +210,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set showLabel0
+     * Set showLabel0.
      *
      * @param string $showLabel0
      */
@@ -221,7 +222,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get showLabel0
+     * Get showLabel0.
      *
      * @return string
      */
@@ -231,7 +232,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set fontSize0
+     * Set fontSize0.
      *
      * @param string $fontSize0
      */
@@ -243,7 +244,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get fontSize0
+     * Get fontSize0.
      *
      * @return string
      */
@@ -253,7 +254,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set pieSize0
+     * Set pieSize0.
      *
      * @param string $pieSize0
      */
@@ -265,7 +266,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get pieSize0
+     * Get pieSize0.
      *
      * @return string
      */
@@ -275,7 +276,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set title0
+     * Set title0.
      *
      * @param string $title0
      */
@@ -287,7 +288,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get title0
+     * Get title0.
      *
      * @return string
      */
@@ -297,7 +298,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set width0
+     * Set width0.
      *
      * @param string $width0
      */
@@ -309,7 +310,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get width0
+     * Get width0.
      *
      * @return string
      */
@@ -319,7 +320,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set height0
+     * Set height0.
      *
      * @param string $height0
      */
@@ -331,7 +332,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get height0
+     * Get height0.
      *
      * @return string
      */
@@ -341,7 +342,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set coordonatesYAxis0
+     * Set coordonatesYAxis0.
      *
      * @param string $coordonatesYAxis0
      */
@@ -353,7 +354,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get coordonatesYAxis0
+     * Get coordonatesYAxis0.
      *
      * @return string
      */
@@ -363,7 +364,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set data0
+     * Set data0.
      *
      * @param string $data0
      */
@@ -375,7 +376,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get data0
+     * Get data0.
      *
      * @return string
      */
@@ -385,7 +386,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set isDoubleChart
+     * Set isDoubleChart.
      *
      * @param string $isDoubleChart
      */
@@ -397,7 +398,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get isDoubleChart
+     * Get isDoubleChart.
      *
      * @return string
      */
@@ -407,7 +408,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set type1
+     * Set type1.
      *
      * @param string $type1
      */
@@ -419,7 +420,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get type1
+     * Get type1.
      *
      * @return string
      */
@@ -429,7 +430,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set showLabel1
+     * Set showLabel1.
      *
      * @param string $showLabel1
      */
@@ -441,7 +442,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get showLabel1
+     * Get showLabel1.
      *
      * @return string
      */
@@ -451,7 +452,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set title1
+     * Set title1.
      *
      * @param string $title1
      */
@@ -463,7 +464,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get title1
+     * Get title1.
      *
      * @return string
      */
@@ -473,7 +474,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set fontSize1
+     * Set fontSize1.
      *
      * @param string $fontSize1
      */
@@ -485,7 +486,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get fontSize1
+     * Get fontSize1.
      *
      * @return string
      */
@@ -495,7 +496,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set pieSize1
+     * Set pieSize1.
      *
      * @param string $pieSize1
      */
@@ -507,7 +508,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get pieSize1
+     * Get pieSize1.
      *
      * @return string
      */
@@ -517,7 +518,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set width1
+     * Set width1.
      *
      * @param string $width1
      */
@@ -529,7 +530,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get width1
+     * Get width1.
      *
      * @return string
      */
@@ -539,7 +540,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set height1
+     * Set height1.
      *
      * @param string $height1
      */
@@ -551,7 +552,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get height1
+     * Get height1.
      *
      * @return string
      */
@@ -561,7 +562,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set coordonatesYAxis1
+     * Set coordonatesYAxis1.
      *
      * @param string $coordonatesYAxis1
      */
@@ -573,7 +574,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get coordonatesYAxis1
+     * Get coordonatesYAxis1.
      *
      * @return string
      */
@@ -583,7 +584,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set data1
+     * Set data1.
      *
      * @param string $data1
      */
@@ -595,7 +596,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get data1
+     * Get data1.
      *
      * @return string
      */
@@ -605,7 +606,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Get type of index
+     * Get type of index.
      *
      * @return string
      */
@@ -619,7 +620,7 @@ class WidgetStatistic extends Widget
     }
 
     /**
-     * Set data of index
+     * Set data of index.
      *
      * @param string $data
      */
