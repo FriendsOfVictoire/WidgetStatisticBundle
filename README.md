@@ -1,16 +1,21 @@
-*DEPRECATED*, you should use the victoire/table-widget instead
-===========
-
-Victoire CMS Statistic Bundle
+Victoire DCMS Statistic Bundle
 ============
 
-Need to add a statistic in a victoire cms website ?
-Get this statistic bundle and so on
+##What is the purpose of this bundle
 
-First you need to have a valid Symfony2 Victoire edition.
-Then you just have to run the following composer command :
+This bundle gives you access to the *Statistic Widget* which enables a graphical representation of datas.
+
+##Set Up Victoire
+
+If you haven't already, you can follow the steps to set up Victoire *[here](https://github.com/Victoire/victoire/blob/master/setup.md)*
+
+##Install the Bundle
+
+Run the following composer command :
 
     php composer.phar require friendsofvictoire/statistic-bundle
+
+###Reminder
 
 Do not forget to add the bundle in your AppKernel !
 
